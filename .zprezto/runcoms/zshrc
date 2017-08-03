@@ -1,0 +1,48 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# misc/OS
+alias ls='ls -GFhla'
+alias showHidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideHidden='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+# docker
+alias dc='docker-compose'
+alias dcu='dc up'
+alias dcd='dc down'
+alias dls='docker ps -a -q'
+drmcall='docker rm $(docker ps -a -q)'
+drmiall='docker rmi $(docker images -a -q)'
+dstop='docker stop $(docker ps -a -q)'
+# git
+alias gs='git status'
+alias ga='git add .'
+alias gb='git branch'
+alias gck='git checkout'
+alias gl='git log'
+alias gckm='git checkout master'
+alias gc='git commit -m'
+alias gp='git pull'
+
+#make python3 default for sessions
+alias python='python3'
+# load nvm
+export NVM_DIR="/Users/guy/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Azure CLI
+export PATH=$PATH:/Users/guy/bin
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+source ~/.iterm2_shell_integration.`basename $SHELL`

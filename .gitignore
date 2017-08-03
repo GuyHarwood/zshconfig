@@ -3,5 +3,5 @@
 
 # But not these files...
 !.gitignore
-!.zshrc
-!.zprestorc
+!.zprezto/runcoms/zshrc
+!.zprezto/runcoms/zpreztorc
